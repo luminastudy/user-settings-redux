@@ -1,0 +1,55 @@
+{
+  "name": "@lumina-study/user-settings-redux",
+  "version": "0.1.0",
+  "description": "Redux store for Lumina Study user settings with unstorage persistence",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "release": "release-it",
+    "release:dry": "release-it --dry-run --increment patch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luminastudy/user-settings-redux.git"
+  },
+  "keywords": [
+    "redux",
+    "user-settings",
+    "configuration",
+    "lumina-study",
+    "unstorage",
+    "persistence"
+  ],
+  "author": "Lumina Study",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luminastudy/user-settings-redux/issues"
+  },
+  "homepage": "https://github.com/luminastudy/user-settings-redux#readme",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.0.0",
+    "@lumina-study/user-settings": "^0.1.0",
+    "unstorage": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-redux": ">=7.0.0"
+  },
+  "devDependencies": {
+    "@release-it/keep-a-changelog": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "release-it": "^17.10.0",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,26 @@
+# Source files
+src/
+tsconfig.json
+
+# Git
+.git/
+.gitignore
+
+# CI/CD
+.github/
+
+# IDE
+.vscode/
+.idea/
+.claude/
+.kiro/
+
+# Development
+*.log
+.env
+.env.*
+
+# Tests
+coverage/
+*.test.ts
+*.spec.ts
