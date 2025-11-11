@@ -18,6 +18,12 @@ export {
   setUserSettings,
   setLanguage,
   setDegreeId,
+  setInstitutionId,
+  setDegreeTitle,
+  setFontFamily,
+  setShuffleQuestions,
+  setDevMode,
+  updateUserSettings,
   resetUserSettings,
   userSettingsSlice,
 } from './userSettingsSlice';
@@ -39,6 +45,18 @@ export {
   useLanguage,
   useDegreeId,
 } from './hooks';
+
+// Export registered degree utilities
+export {
+  initializeRegisteredDegree,
+  saveRegisteredDegreeToLocalStorage,
+  getRegisteredDegreeFromLocalStorage,
+  clearRegisteredDegreeFromLocalStorage,
+  type RegisteredDegreeData,
+} from './registeredDegreeUtils';
+
+// Export registered degree hook
+export { useRegisteredDegree, type UseRegisteredDegreeReturn } from './useRegisteredDegree';
 
 // Re-export types from user-settings package
 export type { UserSettings } from '@lumina-study/user-settings';

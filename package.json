@@ -36,7 +36,7 @@
   "homepage": "https://github.com/luminastudy/user-settings-redux#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.0",
-    "@lumina-study/user-settings": "^0.1.0",
+    "@lumina-study/user-settings": "file:../user-settings",
     "unstorage": "^1.0.0"
   },
   "peerDependencies": {
