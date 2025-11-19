@@ -31,3 +31,8 @@ pnpm-debug.log*
 # Testing
 coverage/
 .nyc_output/
+
+# Claude Code temporary files
+.claude-container/
+.claude-revert-backup-*/
+eslint-report.json
