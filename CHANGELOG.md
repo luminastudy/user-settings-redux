@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Add TypeScript DOM library support for localStorage APIs in registeredDegreeUtils
+- Add @types/react dev dependency to resolve React type imports in hooks
+- Fix build errors preventing package compilation
+
 ## [0.1.0] - 2025-11-11
 
 ### Added
