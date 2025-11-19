@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/luminastudy/user-settings-redux#readme",
   "dependencies": {
-    "@reduxjs/toolkit": "^2.0.0",
     "@lumina-study/user-settings": "file:../user-settings",
+    "@reduxjs/toolkit": "^2.0.0",
     "unstorage": "^1.0.0"
   },
   "peerDependencies": {
@@ -46,6 +46,7 @@
   "devDependencies": {
     "@release-it/keep-a-changelog": "^5.0.0",
     "@types/node": "^20.0.0",
+    "@types/react": "^19.2.6",
     "release-it": "^17.10.0",
     "typescript": "^5.0.0"
   },
