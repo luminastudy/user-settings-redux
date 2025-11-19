@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "lumina",
+    "reduxjs",
+    "unstorage",
+    "vitest",
+    "pnpm",
+    "husky",
+    "eslint",
+    "tsconfig",
+    "commitlint",
+    "persistenceMiddleware",
+    "institutionId",
+    "degreeId"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "pnpm-lock.yaml",
+    "*.min.js",
+    ".git",
+    "CHANGELOG.md"
+  ]
+}

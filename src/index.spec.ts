@@ -1,0 +1,49 @@
+import { describe, it, expect } from 'vitest'
+import * as exports from './index'
+
+describe('index exports', () => {
+  it('should export store creation functions', () => {
+    expect(exports.createUserSettingsStore).toBeDefined()
+  })
+
+  it('should export slice actions', () => {
+    expect(exports.setUserSettings).toBeDefined()
+    expect(exports.setLanguage).toBeDefined()
+    expect(exports.setDegreeId).toBeDefined()
+    expect(exports.setInstitutionId).toBeDefined()
+    expect(exports.setDegreeTitle).toBeDefined()
+    expect(exports.setFontFamily).toBeDefined()
+    expect(exports.setShuffleQuestions).toBeDefined()
+    expect(exports.setDevMode).toBeDefined()
+    expect(exports.updateUserSettings).toBeDefined()
+    expect(exports.resetUserSettings).toBeDefined()
+    expect(exports.userSettingsSlice).toBeDefined()
+    expect(exports.userSettingsReducer).toBeDefined()
+  })
+
+  it('should export persistence utilities', () => {
+    expect(exports.createPersistenceMiddleware).toBeDefined()
+    expect(exports.loadPersistedSettings).toBeDefined()
+    expect(exports.clearPersistedSettings).toBeDefined()
+    expect(exports.STORAGE_KEY).toBeDefined()
+  })
+
+  it('should export hooks', () => {
+    expect(exports.useAppDispatch).toBeDefined()
+    expect(exports.useAppSelector).toBeDefined()
+    expect(exports.useUserSettings).toBeDefined()
+    expect(exports.useLanguage).toBeDefined()
+    expect(exports.useDegreeId).toBeDefined()
+  })
+
+  it('should export registered degree utilities', () => {
+    expect(exports.initializeRegisteredDegree).toBeDefined()
+    expect(exports.saveRegisteredDegreeToLocalStorage).toBeDefined()
+    expect(exports.getRegisteredDegreeFromLocalStorage).toBeDefined()
+    expect(exports.clearRegisteredDegreeFromLocalStorage).toBeDefined()
+  })
+
+  it('should export registered degree hook', () => {
+    expect(exports.useRegisteredDegree).toBeDefined()
+  })
+})
