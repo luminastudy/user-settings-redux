@@ -1,11 +1,11 @@
-import { Middleware } from '@reduxjs/toolkit';
-import type { Storage } from 'unstorage';
-import type { UserSettings } from '@lumina-study/user-settings';
+import { Middleware } from '@reduxjs/toolkit'
+import type { Storage } from 'unstorage'
+import type { UserSettings } from '@lumina-study/user-settings'
 
 /**
  * Storage key used for persisting user settings
  */
-const STORAGE_KEY = 'user-settings';
+const STORAGE_KEY = 'user-settings'
 
 /**
  * Creates a Redux middleware that persists user settings to unstorage
@@ -19,35 +19,35 @@ const STORAGE_KEY = 'user-settings';
  * @returns Redux middleware function
  */
 export function createPersistenceMiddleware(storage: Storage): Middleware {
-  let writeTimeout: NodeJS.Timeout | null = null;
-  const DEBOUNCE_MS = 300;
+  let writeTimeout: NodeJS.Timeout | null = null
+  const DEBOUNCE_MS = 300
 
-  return (store) => (next) => (action) => {
+  return store => next => action => {
     // Execute the action first
-    const result = next(action);
+    const result = next(action)
 
     // Check if the action is related to user settings
-    const actionType = (action as { type: string }).type;
+    const actionType = (action as { type: string }).type
     if (actionType?.startsWith('userSettings/')) {
       // Debounce the write operation
       if (writeTimeout) {
-        clearTimeout(writeTimeout);
+        clearTimeout(writeTimeout)
       }
 
       writeTimeout = setTimeout(async () => {
-        const state = store.getState();
-        const userSettings = state.userSettings as UserSettings;
+        const state = store.getState()
+        const userSettings = state.userSettings as UserSettings
 
         try {
-          await storage.setItem(STORAGE_KEY, userSettings);
+          await storage.setItem(STORAGE_KEY, userSettings)
         } catch (error) {
-          console.error('Failed to persist user settings:', error);
+          console.error('Failed to persist user settings:', error)
         }
-      }, DEBOUNCE_MS);
+      }, DEBOUNCE_MS)
     }
 
-    return result;
-  };
+    return result
+  }
 }
 
 /**
@@ -60,11 +60,11 @@ export async function loadPersistedSettings(
   storage: Storage
 ): Promise<UserSettings | null> {
   try {
-    const settings = await storage.getItem<UserSettings>(STORAGE_KEY);
-    return settings;
+    const settings = await storage.getItem<UserSettings>(STORAGE_KEY)
+    return settings
   } catch (error) {
-    console.error('Failed to load persisted user settings:', error);
-    return null;
+    console.error('Failed to load persisted user settings:', error)
+    return null
   }
 }
 
@@ -75,10 +75,10 @@ export async function loadPersistedSettings(
  */
 export async function clearPersistedSettings(storage: Storage): Promise<void> {
   try {
-    await storage.removeItem(STORAGE_KEY);
+    await storage.removeItem(STORAGE_KEY)
   } catch (error) {
-    console.error('Failed to clear persisted user settings:', error);
+    console.error('Failed to clear persisted user settings:', error)
   }
 }
 
-export { STORAGE_KEY };
+export { STORAGE_KEY }

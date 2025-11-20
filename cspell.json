@@ -13,8 +13,10 @@
     "commitlint",
     "persistenceMiddleware",
     "institutionId",
-    "degreeId"
+    "degreeId",
+    "indexedb"
   ],
+  "ignoreRegExpList": ["/[\\u0590-\\u05FF]+/"],
   "ignorePaths": [
     "node_modules",
     "dist",

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { UserSettings } from '@lumina-study/user-settings';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import type { UserSettings } from '@lumina-study/user-settings'
 
 /**
  * Initial state for user settings with default values
@@ -12,7 +12,7 @@ const initialState: UserSettings = {
   fontFamily: null,
   shuffleQuestions: false,
   devMode: false,
-};
+}
 
 /**
  * Redux slice for user settings
@@ -27,64 +27,79 @@ export const userSettingsSlice = createSlice({
      * Used primarily when loading persisted settings from storage
      */
     setUserSettings: (state, action: PayloadAction<UserSettings>) => {
-      return action.payload;
+      return action.payload
     },
     /**
      * Update the user interface language
      */
     setLanguage: (state, action: PayloadAction<UserSettings['language']>) => {
-      state.language = action.payload;
+      state.language = action.payload
     },
     /**
      * Update the user's degree identifier
      */
     setDegreeId: (state, action: PayloadAction<UserSettings['degreeId']>) => {
-      state.degreeId = action.payload;
+      state.degreeId = action.payload
     },
     /**
      * Update the user's institution identifier
      */
-    setInstitutionId: (state, action: PayloadAction<UserSettings['institutionId']>) => {
-      state.institutionId = action.payload;
+    setInstitutionId: (
+      state,
+      action: PayloadAction<UserSettings['institutionId']>
+    ) => {
+      state.institutionId = action.payload
     },
     /**
      * Update the user's degree title
      */
-    setDegreeTitle: (state, action: PayloadAction<UserSettings['degreeTitle']>) => {
-      state.degreeTitle = action.payload;
+    setDegreeTitle: (
+      state,
+      action: PayloadAction<UserSettings['degreeTitle']>
+    ) => {
+      state.degreeTitle = action.payload
     },
     /**
      * Update font family preference
      */
-    setFontFamily: (state, action: PayloadAction<UserSettings['fontFamily']>) => {
-      state.fontFamily = action.payload;
+    setFontFamily: (
+      state,
+      action: PayloadAction<UserSettings['fontFamily']>
+    ) => {
+      state.fontFamily = action.payload
     },
     /**
      * Toggle shuffle questions setting
      */
-    setShuffleQuestions: (state, action: PayloadAction<UserSettings['shuffleQuestions']>) => {
-      state.shuffleQuestions = action.payload;
+    setShuffleQuestions: (
+      state,
+      action: PayloadAction<UserSettings['shuffleQuestions']>
+    ) => {
+      state.shuffleQuestions = action.payload
     },
     /**
      * Toggle dev mode
      */
     setDevMode: (state, action: PayloadAction<UserSettings['devMode']>) => {
-      state.devMode = action.payload;
+      state.devMode = action.payload
     },
     /**
      * Update partial user settings
      */
-    updateUserSettings: (state, action: PayloadAction<Partial<UserSettings>>) => {
-      return { ...state, ...action.payload };
+    updateUserSettings: (
+      state,
+      action: PayloadAction<Partial<UserSettings>>
+    ) => {
+      return { ...state, ...action.payload }
     },
     /**
      * Reset settings to default values
      */
     resetUserSettings: () => {
-      return initialState;
+      return initialState
     },
   },
-});
+})
 
 export const {
   setUserSettings,
@@ -97,6 +112,6 @@ export const {
   setDevMode,
   updateUserSettings,
   resetUserSettings,
-} = userSettingsSlice.actions;
+} = userSettingsSlice.actions
 
-export default userSettingsSlice.reducer;
+export default userSettingsSlice.reducer

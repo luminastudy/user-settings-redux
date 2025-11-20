@@ -1,25 +1,30 @@
-import type { UserSettings } from '@lumina-study/user-settings';
+import type { UserSettings } from '@lumina-study/user-settings'
 
 export interface RegisteredDegreeData {
-  degreeId: string | null;
-  institutionId: string | null;
-  degreeTitle?: string | null;
+  degreeId: string | null
+  institutionId: string | null
+  degreeTitle?: string | null
 }
 
-const REGISTERED_DEGREE_STORAGE_KEY = 'lumina-registered-degree';
+const REGISTERED_DEGREE_STORAGE_KEY = 'lumina-registered-degree'
 
 /**
  * Save registered degree data to localStorage
  */
-export function saveRegisteredDegreeToLocalStorage(data: RegisteredDegreeData): void {
+export function saveRegisteredDegreeToLocalStorage(
+  data: RegisteredDegreeData
+): void {
   try {
     const dataWithTimestamp = {
       ...data,
       updatedAt: new Date().toISOString(),
-    };
-    localStorage.setItem(REGISTERED_DEGREE_STORAGE_KEY, JSON.stringify(dataWithTimestamp));
+    }
+    localStorage.setItem(
+      REGISTERED_DEGREE_STORAGE_KEY,
+      JSON.stringify(dataWithTimestamp)
+    )
   } catch (error) {
-    console.warn('Failed to save registered degree to localStorage:', error);
+    console.warn('Failed to save registered degree to localStorage:', error)
   }
 }
 
@@ -28,14 +33,17 @@ export function saveRegisteredDegreeToLocalStorage(data: RegisteredDegreeData): 
  */
 export function getRegisteredDegreeFromLocalStorage(): RegisteredDegreeData {
   try {
-    const stored = localStorage.getItem(REGISTERED_DEGREE_STORAGE_KEY);
+    const stored = localStorage.getItem(REGISTERED_DEGREE_STORAGE_KEY)
     if (stored === null) {
-      return { degreeId: null, institutionId: null };
+      return { degreeId: null, institutionId: null }
     }
-    return JSON.parse(stored);
+    return JSON.parse(stored)
   } catch (error) {
-    console.warn('Failed to retrieve registered degree from localStorage:', error);
-    return { degreeId: null, institutionId: null };
+    console.warn(
+      'Failed to retrieve registered degree from localStorage:',
+      error
+    )
+    return { degreeId: null, institutionId: null }
   }
 }
 
@@ -44,9 +52,9 @@ export function getRegisteredDegreeFromLocalStorage(): RegisteredDegreeData {
  */
 export function clearRegisteredDegreeFromLocalStorage(): void {
   try {
-    localStorage.removeItem(REGISTERED_DEGREE_STORAGE_KEY);
+    localStorage.removeItem(REGISTERED_DEGREE_STORAGE_KEY)
   } catch (error) {
-    console.warn('Failed to clear registered degree from localStorage:', error);
+    console.warn('Failed to clear registered degree from localStorage:', error)
   }
 }
 
@@ -55,5 +63,5 @@ export function clearRegisteredDegreeFromLocalStorage(): void {
  * Call this on app startup to load persisted degree data
  */
 export function initializeRegisteredDegree(): RegisteredDegreeData {
-  return getRegisteredDegreeFromLocalStorage();
+  return getRegisteredDegreeFromLocalStorage()
 }

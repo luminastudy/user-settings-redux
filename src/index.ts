@@ -11,7 +11,7 @@ export {
   type UserSettingsStore,
   type RootState,
   type AppDispatch,
-} from './store';
+} from './store'
 
 // Export slice actions and reducer
 export {
@@ -26,8 +26,8 @@ export {
   updateUserSettings,
   resetUserSettings,
   userSettingsSlice,
-} from './userSettingsSlice';
-export { default as userSettingsReducer } from './userSettingsSlice';
+} from './userSettingsSlice'
+export { default as userSettingsReducer } from './userSettingsSlice'
 
 // Export persistence utilities
 export {
@@ -35,7 +35,7 @@ export {
   loadPersistedSettings,
   clearPersistedSettings,
   STORAGE_KEY,
-} from './persistenceMiddleware';
+} from './persistenceMiddleware'
 
 // Export hooks
 export {
@@ -44,7 +44,7 @@ export {
   useUserSettings,
   useLanguage,
   useDegreeId,
-} from './hooks';
+} from './hooks'
 
 // Export registered degree utilities
 export {
@@ -53,10 +53,13 @@ export {
   getRegisteredDegreeFromLocalStorage,
   clearRegisteredDegreeFromLocalStorage,
   type RegisteredDegreeData,
-} from './registeredDegreeUtils';
+} from './registeredDegreeUtils'
 
 // Export registered degree hook
-export { useRegisteredDegree, type UseRegisteredDegreeReturn } from './useRegisteredDegree';
+export {
+  useRegisteredDegree,
+  type UseRegisteredDegreeReturn,
+} from './useRegisteredDegree'
 
 // Re-export types from user-settings package
-export type { UserSettings } from '@lumina-study/user-settings';
+export type { UserSettings } from '@lumina-study/user-settings'

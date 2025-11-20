@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import type { TypedUseSelectorHook } from 'react-redux';
-import type { RootState, AppDispatch } from './store';
+import { useDispatch, useSelector } from 'react-redux'
+import type { TypedUseSelectorHook } from 'react-redux'
+import type { RootState, AppDispatch } from './store'
 
 /**
  * Typed version of useDispatch hook for use throughout the app
@@ -11,7 +11,7 @@ import type { RootState, AppDispatch } from './store';
  * dispatch(setLanguage('he'));
  * ```
  */
-export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch
 
 /**
  * Typed version of useSelector hook for use throughout the app
@@ -21,7 +21,7 @@ export const useAppDispatch: () => AppDispatch = useDispatch;
  * const language = useAppSelector((state) => state.userSettings.language);
  * ```
  */
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 /**
  * Custom hook to access user settings from the store
@@ -34,7 +34,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
  * ```
  */
 export function useUserSettings() {
-  return useAppSelector((state) => state.userSettings);
+  return useAppSelector(state => state.userSettings)
 }
 
 /**
@@ -51,15 +51,15 @@ export function useUserSettings() {
  * ```
  */
 export function useLanguage() {
-  const language = useAppSelector((state) => state.userSettings.language);
-  const dispatch = useAppDispatch();
+  const language = useAppSelector(state => state.userSettings.language)
+  const dispatch = useAppDispatch()
 
   const setLang = (newLanguage: 'he' | 'en') => {
-    const { setLanguage } = require('./userSettingsSlice');
-    dispatch(setLanguage(newLanguage));
-  };
+    const { setLanguage } = require('./userSettingsSlice')
+    dispatch(setLanguage(newLanguage))
+  }
 
-  return [language, setLang] as const;
+  return [language, setLang] as const
 }
 
 /**
@@ -76,13 +76,13 @@ export function useLanguage() {
  * ```
  */
 export function useDegreeId() {
-  const degreeId = useAppSelector((state) => state.userSettings.degreeId);
-  const dispatch = useAppDispatch();
+  const degreeId = useAppSelector(state => state.userSettings.degreeId)
+  const dispatch = useAppDispatch()
 
   const setDegree = (newDegreeId: string | null) => {
-    const { setDegreeId } = require('./userSettingsSlice');
-    dispatch(setDegreeId(newDegreeId));
-  };
+    const { setDegreeId } = require('./userSettingsSlice')
+    dispatch(setDegreeId(newDegreeId))
+  }
 
-  return [degreeId, setDegree] as const;
+  return [degreeId, setDegree] as const
 }

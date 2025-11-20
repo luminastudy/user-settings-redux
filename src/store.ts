@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import type { Storage } from 'unstorage';
-import userSettingsReducer, { setUserSettings } from './userSettingsSlice';
+import { configureStore } from '@reduxjs/toolkit'
+import type { Storage } from 'unstorage'
+import userSettingsReducer, { setUserSettings } from './userSettingsSlice'
 import {
   createPersistenceMiddleware,
   loadPersistedSettings,
-} from './persistenceMiddleware';
+} from './persistenceMiddleware'
 
 /**
  * Configuration options for creating the user settings store
@@ -13,12 +13,12 @@ export interface CreateStoreOptions {
   /**
    * The unstorage driver instance to use for persistence
    */
-  storage: Storage;
+  storage: Storage
 
   /**
    * Additional Redux DevTools options
    */
-  devTools?: boolean;
+  devTools?: boolean
 }
 
 /**
@@ -47,17 +47,17 @@ export interface CreateStoreOptions {
  * ```
  */
 export async function createUserSettingsStore(options: CreateStoreOptions) {
-  const { storage, devTools = true } = options;
+  const { storage, devTools = true } = options
 
   // Create the persistence middleware
-  const persistenceMiddleware = createPersistenceMiddleware(storage);
+  const persistenceMiddleware = createPersistenceMiddleware(storage)
 
   // Create the store
   const store = configureStore({
     reducer: {
       userSettings: userSettingsReducer,
     },
-    middleware: (getDefaultMiddleware) =>
+    middleware: getDefaultMiddleware =>
       getDefaultMiddleware({
         // Configure serialization check to ignore Storage objects
         serializableCheck: {
@@ -66,15 +66,15 @@ export async function createUserSettingsStore(options: CreateStoreOptions) {
         },
       }).concat(persistenceMiddleware),
     devTools,
-  });
+  })
 
   // Load persisted settings and initialize the store
-  const persistedSettings = await loadPersistedSettings(storage);
+  const persistedSettings = await loadPersistedSettings(storage)
   if (persistedSettings) {
-    store.dispatch(setUserSettings(persistedSettings));
+    store.dispatch(setUserSettings(persistedSettings))
   }
 
-  return store;
+  return store
 }
 
 /**
@@ -82,14 +82,14 @@ export async function createUserSettingsStore(options: CreateStoreOptions) {
  */
 export type UserSettingsStore = Awaited<
   ReturnType<typeof createUserSettingsStore>
->;
+>
 
 /**
  * Export RootState type for use with hooks
  */
-export type RootState = ReturnType<UserSettingsStore['getState']>;
+export type RootState = ReturnType<UserSettingsStore['getState']>
 
 /**
  * Export AppDispatch type for use with hooks
  */
-export type AppDispatch = UserSettingsStore['dispatch'];
+export type AppDispatch = UserSettingsStore['dispatch']
