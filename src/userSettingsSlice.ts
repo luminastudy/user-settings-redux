@@ -7,11 +7,6 @@ import type { UserSettings } from '@lumina-study/user-settings'
 const initialState: UserSettings = {
   language: 'en',
   degreeId: null,
-  institutionId: null,
-  degreeTitle: null,
-  fontFamily: null,
-  shuffleQuestions: false,
-  devMode: false,
 }
 
 /**
@@ -42,48 +37,6 @@ export const userSettingsSlice = createSlice({
       state.degreeId = action.payload
     },
     /**
-     * Update the user's institution identifier
-     */
-    setInstitutionId: (
-      state,
-      action: PayloadAction<UserSettings['institutionId']>
-    ) => {
-      state.institutionId = action.payload
-    },
-    /**
-     * Update the user's degree title
-     */
-    setDegreeTitle: (
-      state,
-      action: PayloadAction<UserSettings['degreeTitle']>
-    ) => {
-      state.degreeTitle = action.payload
-    },
-    /**
-     * Update font family preference
-     */
-    setFontFamily: (
-      state,
-      action: PayloadAction<UserSettings['fontFamily']>
-    ) => {
-      state.fontFamily = action.payload
-    },
-    /**
-     * Toggle shuffle questions setting
-     */
-    setShuffleQuestions: (
-      state,
-      action: PayloadAction<UserSettings['shuffleQuestions']>
-    ) => {
-      state.shuffleQuestions = action.payload
-    },
-    /**
-     * Toggle dev mode
-     */
-    setDevMode: (state, action: PayloadAction<UserSettings['devMode']>) => {
-      state.devMode = action.payload
-    },
-    /**
      * Update partial user settings
      */
     updateUserSettings: (
@@ -105,11 +58,6 @@ export const {
   setUserSettings,
   setLanguage,
   setDegreeId,
-  setInstitutionId,
-  setDegreeTitle,
-  setFontFamily,
-  setShuffleQuestions,
-  setDevMode,
   updateUserSettings,
   resetUserSettings,
 } = userSettingsSlice.actions

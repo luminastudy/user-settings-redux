@@ -22,6 +22,9 @@ export interface UseRegisteredDegreeReturn {
 
 /**
  * Hook for managing registered degree with localStorage and Redux sync
+ *
+ * Note: institutionId and degreeTitle are stored in localStorage only,
+ * not in Redux UserSettings (which only has language and degreeId)
  */
 export function useRegisteredDegree(): UseRegisteredDegreeReturn {
   const dispatch = useAppDispatch()
@@ -35,15 +38,13 @@ export function useRegisteredDegree(): UseRegisteredDegreeReturn {
 
   const [isUpdating, setIsUpdating] = useState(false)
 
-  // Sync with Redux state on mount
+  // Sync degreeId with Redux state on mount
   useEffect(() => {
     const stored = getRegisteredDegreeFromLocalStorage()
     if (stored.degreeId !== null) {
       dispatch(
         updateUserSettings({
           degreeId: stored.degreeId,
-          institutionId: stored.institutionId,
-          degreeTitle: stored.degreeTitle,
         })
       )
     }
@@ -64,11 +65,10 @@ export function useRegisteredDegree(): UseRegisteredDegreeReturn {
         }
         setRegisteredDegreeState(newData)
         saveRegisteredDegreeToLocalStorage(newData)
+        // Only sync degreeId to Redux (UserSettings only has language and degreeId)
         dispatch(
           updateUserSettings({
             degreeId: degreeId,
-            institutionId: institutionId,
-            degreeTitle: degreeTitle || null,
           })
         )
       } finally {
@@ -87,11 +87,10 @@ export function useRegisteredDegree(): UseRegisteredDegreeReturn {
       }
       setRegisteredDegreeState(emptyData)
       clearRegisteredDegreeFromLocalStorage()
+      // Only sync degreeId to Redux (UserSettings only has language and degreeId)
       dispatch(
         updateUserSettings({
           degreeId: null,
-          institutionId: null,
-          degreeTitle: null,
         })
       )
     } finally {
