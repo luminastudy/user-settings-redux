@@ -14,7 +14,10 @@
     "persistenceMiddleware",
     "institutionId",
     "degreeId",
-    "indexedb"
+    "indexedb",
+    "knip",
+    "codecov",
+    "lcov"
   ],
   "ignoreRegExpList": ["/[\\u0590-\\u05FF]+/"],
   "ignorePaths": [
