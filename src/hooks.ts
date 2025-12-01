@@ -30,7 +30,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
  *
  * @example
  * ```typescript
- * const { language, degreeId } = useUserSettings();
+ * const { language } = useUserSettings();
  * ```
  */
 export function useUserSettings() {
@@ -60,29 +60,4 @@ export function useLanguage() {
   }
 
   return [language, setLang] as const
-}
-
-/**
- * Custom hook to access and update the degree ID setting
- *
- * @returns A tuple containing the current degree ID and a setter function
- *
- * @example
- * ```typescript
- * const [degreeId, setDegree] = useDegreeId();
- *
- * // Update degree ID
- * setDegree('degree-123');
- * ```
- */
-export function useDegreeId() {
-  const degreeId = useAppSelector(state => state.userSettings.degreeId)
-  const dispatch = useAppDispatch()
-
-  const setDegree = (newDegreeId: string | null) => {
-    const { setDegreeId } = require('./userSettingsSlice')
-    dispatch(setDegreeId(newDegreeId))
-  }
-
-  return [degreeId, setDegree] as const
 }

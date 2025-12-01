@@ -9,7 +9,6 @@ describe('index exports', () => {
   it('should export slice actions', () => {
     expect(exports.setUserSettings).toBeDefined()
     expect(exports.setLanguage).toBeDefined()
-    expect(exports.setDegreeId).toBeDefined()
     expect(exports.updateUserSettings).toBeDefined()
     expect(exports.resetUserSettings).toBeDefined()
     expect(exports.userSettingsSlice).toBeDefined()
@@ -28,17 +27,5 @@ describe('index exports', () => {
     expect(exports.useAppSelector).toBeDefined()
     expect(exports.useUserSettings).toBeDefined()
     expect(exports.useLanguage).toBeDefined()
-    expect(exports.useDegreeId).toBeDefined()
-  })
-
-  it('should export registered degree utilities', () => {
-    expect(exports.initializeRegisteredDegree).toBeDefined()
-    expect(exports.saveRegisteredDegreeToLocalStorage).toBeDefined()
-    expect(exports.getRegisteredDegreeFromLocalStorage).toBeDefined()
-    expect(exports.clearRegisteredDegreeFromLocalStorage).toBeDefined()
-  })
-
-  it('should export registered degree hook', () => {
-    expect(exports.useRegisteredDegree).toBeDefined()
   })
 })

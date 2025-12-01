@@ -6,12 +6,11 @@ import type { UserSettings } from '@lumina-study/user-settings'
  */
 const initialState: UserSettings = {
   language: 'en',
-  degreeId: null,
 }
 
 /**
  * Redux slice for user settings
- * Manages the state of user preferences including language and degree selection
+ * Manages the state of user preferences including language
  */
 export const userSettingsSlice = createSlice({
   name: 'userSettings',
@@ -29,12 +28,6 @@ export const userSettingsSlice = createSlice({
      */
     setLanguage: (state, action: PayloadAction<UserSettings['language']>) => {
       state.language = action.payload
-    },
-    /**
-     * Update the user's degree identifier
-     */
-    setDegreeId: (state, action: PayloadAction<UserSettings['degreeId']>) => {
-      state.degreeId = action.payload
     },
     /**
      * Update partial user settings
@@ -57,7 +50,6 @@ export const userSettingsSlice = createSlice({
 export const {
   setUserSettings,
   setLanguage,
-  setDegreeId,
   updateUserSettings,
   resetUserSettings,
 } = userSettingsSlice.actions

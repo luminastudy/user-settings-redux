@@ -12,8 +12,6 @@
     "tsconfig",
     "commitlint",
     "persistenceMiddleware",
-    "institutionId",
-    "degreeId",
     "indexedb",
     "knip",
     "codecov",
