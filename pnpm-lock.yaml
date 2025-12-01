@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@lumina-study/user-settings':
-        specifier: ^0.1.1
-        version: 0.1.1
+        specifier: ^1.0.0
+        version: 1.0.0
       '@reduxjs/toolkit':
         specifier: ^2.0.0
         version: 2.10.1(react-redux@9.2.0(@types/react@19.2.6)(react@19.2.0)(redux@5.0.1))(react@19.2.0)
@@ -643,8 +643,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@lumina-study/user-settings@0.1.1':
-    resolution: {integrity: sha512-/HycmnO6Gzn48Ja028okkALoKK9NwcVzb+ypKmW0+CVvMezw86vGuon/mB4SO8BoH3zbWWzzGrm09/l3CVgLBQ==}
+  '@lumina-study/user-settings@1.0.0':
+    resolution: {integrity: sha512-vtcmeFwthM7kaYc5YnoS7+FGOXjqLbXRAVnMFI4GNVa69W/eyPK11jUTbBDxBrx4zvaHEEHkqVehKnEetspNnw==}
 
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
@@ -4414,7 +4414,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lumina-study/user-settings@0.1.1': {}
+  '@lumina-study/user-settings@1.0.0': {}
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:

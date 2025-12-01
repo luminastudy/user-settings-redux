@@ -1,6 +1,6 @@
 {
   "name": "@lumina-study/user-settings-redux",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Redux store for Lumina Study user settings with unstorage persistence",
   "type": "module",
   "main": "./dist/index.js",
@@ -56,7 +56,7 @@
   },
   "homepage": "https://github.com/luminastudy/user-settings-redux#readme",
   "dependencies": {
-    "@lumina-study/user-settings": "^0.2.0",
+    "@lumina-study/user-settings": "^1.0.0",
     "@reduxjs/toolkit": "^2.0.0",
     "unstorage": "^1.0.0"
   },

@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **BREAKING**: Removed `useDegreeId` hook
+- **BREAKING**: Removed `setDegreeId` action from userSettingsSlice
+- **BREAKING**: Removed `useRegisteredDegree.ts` and `registeredDegreeUtils.ts`
+- Updated dependency `@lumina-study/user-settings` to ^1.0.0
+
 ## [0.1.1] - 2025-11-20
 
 ### Fixed
+
 - Add TypeScript DOM library support for localStorage APIs in registeredDegreeUtils
 - Add @types/react dev dependency to resolve React type imports in hooks
 - Fix build errors preventing package compilation
@@ -17,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-11-11
 
 ### Added
+
 - Initial release of @lumina-study/user-settings-redux
 - Redux store for user settings with Redux Toolkit
 - Integration with unstorage for persistence
